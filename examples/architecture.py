@@ -1,8 +1,37 @@
 """
-Example architecture.py for archlib project itself.
+Bootstrap Guide: Archlib Defining Itself
 
-This demonstrates how to use archlib to define the architecture of archlib.
-This is a meta-example - archlib uses archlib to validate itself.
+This is the PRIMARY LEARNING RESOURCE for archlib. Read this file to understand
+how to use archlib in your own projects.
+
+INSTALLATION:
+    # Install archlib from GitHub
+    uv pip install git+https://github.com/horiacristescu/archlib.git
+    
+    # Or install with optional tree-sitter support
+    uv pip install "git+https://github.com/horiacristescu/archlib.git#egg=archlib[treesitter]"
+    
+    # Verify installation
+    python -c "from archlib import Architecture, Goal, Solution, Implementation; print('✅ Installed')"
+
+This file demonstrates:
+- Complete Goal → Solution → Implementation structure
+- Rich descriptions explaining each concept (read these!)
+- Real-world patterns and best practices
+- How to use `description` fields for documentation
+- Multi-file implementations
+- Solution dependencies
+- Constraint definitions (benchmarks, LLM reviews)
+- Symbol declarations and validation
+
+This is archlib using archlib to validate itself (quine property). Copy this
+file to your project root and adapt it to your needs.
+
+To use this as a template:
+1. Copy this file to your project root as `architecture.py`
+2. Replace Goals, Solutions, and Implementations with your own
+3. Update file paths and symbol declarations
+4. Run `python architecture.py validate` to check your architecture
 """
 
 from archlib import Architecture, Goal, Implementation, Solution
