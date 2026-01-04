@@ -205,7 +205,7 @@ impl_javascript_ast = Implementation(
     name="JavaScript AST Parser Implementation",
     implements=sol_javascript_ast,
     code_files=["../archlib/parsing/javascript.py"],
-    test_files=[],
+    test_files=["../test_javascript_parser.py"],
     must_define={
         "../archlib/parsing/javascript.py": [
             "extract_javascript_symbols",
@@ -228,7 +228,14 @@ impl_cli_interface = Implementation(
     implements=sol_cli_interface,
     code_files=["../archlib/architecture.py"],
     test_files=["../test_cli.py"],
-    must_define={"../archlib/architecture.py": ["Architecture"]},
+    must_define={
+        "../archlib/architecture.py": [
+            "Architecture",
+            "cli",
+            "validate",
+            "run_tests",
+        ]
+    },
     description="""Architecture.cli() sets up argparse with subparsers for validate, spec, and test
 commands. Architecture.validate() runs all checks and exits with error code.
 Architecture.generate_spec() creates mission briefing markdown. Architecture.run_tests()
@@ -242,7 +249,12 @@ impl_spec_generator = Implementation(
     implements=sol_spec_generator,
     code_files=["../archlib/architecture.py"],
     test_files=["../test_cli.py"],
-    must_define={"../archlib/architecture.py": ["Architecture"]},
+    must_define={
+        "../archlib/architecture.py": [
+            "Architecture",
+            "generate_spec",
+        ]
+    },
     description="""Architecture.generate_spec() takes Implementation ID, extracts its Solution and
 satisfied Goals, formats as Markdown mission briefing. Output includes Goals
 (why), Constraints (boundaries), and Required Output (files and symbols).

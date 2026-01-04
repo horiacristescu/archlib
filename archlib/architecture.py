@@ -162,3 +162,4 @@ class Architecture:
             # Default to validate if no action specified
             self.validate()
 
+
